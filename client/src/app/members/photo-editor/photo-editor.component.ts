@@ -26,7 +26,7 @@ export class PhotoEditorComponent implements OnInit {
   ) {
     this.accountService.currentUser$
       .pipe(take(1))
-      .subscribe((user) => (this.user = user));
+      .subscribe(user => (this.user = user));
   }
 
   ngOnInit(): void {
@@ -48,7 +48,7 @@ export class PhotoEditorComponent implements OnInit {
       maxFileSize: 10 * 1024 * 1024,
     });
 
-    this.uploader.onAfterAddingFile = (file) => {
+    this.uploader.onAfterAddingFile = file => {
       file.withCredentials = false;
     };
 
@@ -56,6 +56,11 @@ export class PhotoEditorComponent implements OnInit {
       if (response) {
         const photo = JSON.parse(response);
         this.member.photos.push(photo);
+        if (photo.isMain) {
+          this.user.photoUrl = photo.url;
+          this.member.photoUrl = photo.url;
+          this.accountService.setCurrentUser(this.user);
+        }
       }
     };
   }
@@ -65,7 +70,7 @@ export class PhotoEditorComponent implements OnInit {
       this.user.photoUrl = photo.url;
       this.accountService.setCurrentUser(this.user);
       this.member.photoUrl = photo.url;
-      this.member.photos.forEach((p) => {
+      this.member.photos.forEach(p => {
         if (p.isMain) p.isMain = false;
         if (p.id === photo.id) p.isMain = true;
       });
@@ -74,7 +79,7 @@ export class PhotoEditorComponent implements OnInit {
 
   deletePhoto(photoId: number) {
     this.memberService.deletePhoto(photoId).subscribe(() => {
-      this.member.photos = this.member.photos.filter((p) => p.id !== photoId);
+      this.member.photos = this.member.photos.filter(p => p.id !== photoId);
     });
   }
 }
