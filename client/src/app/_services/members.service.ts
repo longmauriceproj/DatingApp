@@ -25,6 +25,7 @@ export class MembersService {
     params = params.append('minAge', userParams.minAge.toString());
     params = params.append('maxAge', userParams.maxAge.toString());
     params = params.append('gender', userParams.gender);
+    params = params.append('orderBy', userParams.orderBy);
     //removed caching, will come back and reimplement after pagination
     return this.getPaginatedResult<Member[]>(this.baseUrl + 'users', params);
   }
