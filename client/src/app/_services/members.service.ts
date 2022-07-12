@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, pipe, scheduled } from 'rxjs';
+import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Member } from '../_models/member';
@@ -64,6 +64,7 @@ export class MembersService {
     ).pipe(
       map(response => {
         this.memberCache.set(Object.values(userParams).join('-'), response);
+        return response;
       })
     );
   }
@@ -73,7 +74,9 @@ export class MembersService {
       .reduce((arr, elem) => arr.concat(elem.result), [])
       .find((member: Member) => member.username === username);
 
-    if (member) return of(member);
+    if (member) {
+      return of(member);
+    }
     return this.http.get<Member>(this.baseUrl + 'users/' + username);
   }
 
