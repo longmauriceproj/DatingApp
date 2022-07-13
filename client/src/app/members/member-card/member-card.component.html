@@ -15,8 +15,16 @@
         </button>
       </li>
       <li class="list-inline-item">
-        <button class="btn btn-primary"><i class="fa fa-heart"></i></button>
+        <button (click)="addLike(member)" class="btn btn-primary">
+          <i class="fa fa-heart"></i>
+        </button>
       </li>
+      <!-- TODO: implement button to unlike a member. Should toggle/hide -->
+      <!-- <li class="list-inline-item">
+        <button (click)="removeLike(member)" class="btn btn-primary">
+          <i class="fa fa-ban"></i>
+        </button>
+      </li> -->
       <li class="list-inline-item">
         <button class="btn btn-primary"><i class="fa fa-envelope"></i></button>
       </li>

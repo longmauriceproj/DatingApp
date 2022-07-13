@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
+using API.Helpers;
 using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +34,7 @@ namespace API.Controllers
 
             var userLike = await _likesRepository.GetUserLike(sourceUserId, likedUser.Id);
 
-            if (userLike != null) return BadRequest("You already like this user!"); //this could be a toggle to remove a like
+            if (userLike != null) return BadRequest("You already like this user!");
 
             userLike = new AppUserLike
             {
@@ -47,10 +48,21 @@ namespace API.Controllers
 
             return BadRequest("Failed to like user");
         }
+        //TODO: Implement removing like from user
+        // [HttpDelete("remove-like/{username}")]
+
+        // public async Task<ActionResult> RemoveLike(string username) {
+        //     //implemented ability to undo like user action
+        //     // if (userLike != null) sourceUser.LikedUsers.Remove(userLike);
+        // }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LikeDto>>> GetUserLikes(string predicate){
-            var users = await _likesRepository.GetUserLikes(predicate, User.GetUserId());
+        public async Task<ActionResult<IEnumerable<LikeDto>>> GetUserLikes([FromQuery]LikesParams likesParams){
+
+            likesParams.UserId = User.GetUserId();
+            var users = await _likesRepository.GetUserLikes(likesParams);
+
+            Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
 
             return Ok(users);
         }
