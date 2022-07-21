@@ -36,7 +36,6 @@ export class PresenceService {
 
     this.hubConnection.on('GetOnlineUsers', (usernames: string[]) => {
       this.onlineUsersSource.next(usernames);
-      console.log(`Should be array of usernames: ${usernames}`);
     });
   }
 
