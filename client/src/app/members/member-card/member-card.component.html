@@ -20,11 +20,6 @@
         </button>
       </li>
       <!-- TODO: implement button to unlike a member. Should toggle/hide -->
-      <!-- <li class="list-inline-item">
-        <button (click)="removeLike(member)" class="btn btn-primary">
-          <i class="fa fa-ban"></i>
-        </button>
-      </li> -->
       <li class="list-inline-item">
         <button
           routerLink="/members/{{ member.username }}"
@@ -38,7 +33,14 @@
   </div>
   <div class="card-body p-1">
     <h6 class="card-title text-center mb-1">
-      <i class="fa fa-user mr-2"></i>{{ member.knownAs }}, {{ member.age }}
+      <span
+        [class.is-online]="
+          (presence.onlineUsers$ | async).includes(member.username)
+        "
+      >
+        <i class="fa fa-user mr-2"></i>
+      </span>
+      {{ member.knownAs }}, {{ member.age }}
     </h6>
     <p class="card-text text-muted text-center">{{ member.city }}</p>
   </div>
