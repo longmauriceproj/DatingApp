@@ -8,6 +8,8 @@ namespace API.Interfaces
 
         ILikesRepository LikesRepository {get;}
 
+        IPhotoRepository PhotoRepository {get;}
+
         // method to save changes
         Task<bool> Complete();
         // method to see if EF has been tracking any changes

@@ -14,7 +14,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/84.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -33,7 +34,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/3.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -52,7 +54,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/12.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -71,7 +74,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/31.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -79,7 +83,7 @@
     "UserName": "Julie",
     "Gender": "female",
     "DateOfBirth": "1989-03-08",
-    "KnownAs": "Chasity",
+    "KnownAs": "Julie",
     "Created": "2021-11-24",
     "LastActive": "2022-06-10",
     "Introduction": "Et dolore fugiat in sint ipsum sint aliquip aliquip elit. Aliquip id fugiat tempor et proident aliquip aute aute. Aute tempor eu nostrud aliqua non occaecat ut fugiat laborum velit adipisicing consequat enim. Mollit pariatur sunt aute fugiat amet mollit aliqua labore reprehenderit.\r\n",
@@ -90,7 +94,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/88.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -110,7 +115,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/26.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -129,7 +135,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/76.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -148,7 +155,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/87.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -167,15 +175,16 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/93.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
   {
-    "UserName": "Fuentes",
+    "UserName": "Matt",
     "Gender": "male",
     "DateOfBirth": "1985-01-08",
-    "KnownAs": "Fuentes",
+    "KnownAs": "Matt",
     "Created": "2021-08-15",
     "LastActive": "2022-05-25",
     "Introduction": "Dolore duis duis anim exercitation tempor esse aute laborum occaecat. Duis deserunt do minim ad labore pariatur incididunt. Cupidatat voluptate eiusmod nulla labore. Nisi est Lorem do eu reprehenderit officia id. Proident cillum pariatur nisi occaecat aliqua mollit sunt ex. Nisi ullamco commodo nostrud ullamco ut minim ea ex Lorem eiusmod esse excepteur tempor. Officia ex voluptate excepteur adipisicing sit eu.\r\n",
@@ -186,7 +195,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/29.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   }
