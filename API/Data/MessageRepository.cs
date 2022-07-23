@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
@@ -88,6 +89,7 @@ namespace API.Data
                     && m.Sender.UserName == currentUsername
                     && m.SenderDeleted == false
                 )
+                .MarkUnreadAsRead(currentUsername)
                 .OrderBy(m => m.MessageSent)
                 .ProjectTo<MessageDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
