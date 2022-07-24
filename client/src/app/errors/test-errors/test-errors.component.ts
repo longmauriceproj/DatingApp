@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-test-errors',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-errors.component.css'],
 })
 export class TestErrorsComponent implements OnInit {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
   validationErrors: string[] = [];
 
   constructor(private http: HttpClient) {}
@@ -16,10 +17,10 @@ export class TestErrorsComponent implements OnInit {
 
   get404Error() {
     this.http.get(this.baseUrl + 'buggy/not-found').subscribe(
-      (response) => {
+      response => {
         console.log(response);
       },
-      (error) => {
+      error => {
         console.error(error);
       }
     );
@@ -27,10 +28,10 @@ export class TestErrorsComponent implements OnInit {
 
   get400Error() {
     this.http.get(this.baseUrl + 'buggy/bad-request').subscribe(
-      (response) => {
+      response => {
         console.log(response);
       },
-      (error) => {
+      error => {
         console.error(error);
       }
     );
@@ -38,10 +39,10 @@ export class TestErrorsComponent implements OnInit {
 
   get500Error() {
     this.http.get(this.baseUrl + 'buggy/server-error').subscribe(
-      (response) => {
+      response => {
         console.log(response);
       },
-      (error) => {
+      error => {
         console.error(error);
       }
     );
@@ -49,10 +50,10 @@ export class TestErrorsComponent implements OnInit {
 
   get401Error() {
     this.http.get(this.baseUrl + 'buggy/auth').subscribe(
-      (response) => {
+      response => {
         console.log(response);
       },
-      (error) => {
+      error => {
         console.error(error);
       }
     );
@@ -60,10 +61,10 @@ export class TestErrorsComponent implements OnInit {
 
   get400ValidationError() {
     this.http.post(this.baseUrl + 'account/register', {}).subscribe(
-      (response) => {
+      response => {
         console.log(response);
       },
-      (error) => {
+      error => {
         console.error(error);
         this.validationErrors = error;
       }
